@@ -18,6 +18,7 @@ var circlesmap_generator = function(){
   var xScale, rScale;
   var country_circles;
   var xAxis;
+  var countries;
 
   var formatting_data = function(raw_data) {
     // if gtd data is already formatted, then return it
@@ -104,8 +105,7 @@ var circlesmap_generator = function(){
           return 0;
         }
       })
-      .attr("cx", function(d, i) { return xScale(d.time) })
-      ;
+      .attr("cx", function(d, i) { return xScale(d.time) });
     }
   }
 
@@ -145,9 +145,24 @@ var circlesmap_generator = function(){
             .call(xAxis);
   }
 
+  //TODO
+  var update_countries_list = function(new_countries_list) {
+    if(new_countries_list.length - countries.length === 1) {
+      // add country
+      height = countries.length * cell_height;
+
+      d3.select("#circlesmap")
+        .attr("height", height + margin.top + margin.bottom)
+    }
+
+    if(new_countries_list.length - countries.length === -1) {
+      // remove country
+    }
+  }
+
   var update_view = function() {
     // countries added to list
-    var countries = WORLDMAP.countries; // ["3_Letters_Country_Code"]
+    countries = WORLDMAP.countries; // ["3_Letters_Country_Code"]
 
     if(countries.length == 0){
       // Remove old circlesmap

@@ -134,13 +134,8 @@ var WORLDMAP = {
       //console.log(countries);
       that.countries = countries;
       // update circlesmap when clicked countries changes
+      //circlesmap.update_countries_list(countries);
       circlesmap.update();
-      
-      //var html ='';
-      //for(var country in countries){
-      //  html += '<p>' + countries[country] + '</p>';
-      //}
-      //document.getElementById('country_list').innerHTML = html;
     }
     
     svg = d3.select("div#map"); 

@@ -170,7 +170,7 @@ var slider_generator = function(){
     );
 
     // update the circlesmap
-    circlesmap.update(month_range);
+    circlesmap.update_month_range(month_range);
   };
 
   var init = function() {
